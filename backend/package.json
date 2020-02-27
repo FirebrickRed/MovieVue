@@ -1,0 +1,32 @@
+{
+  "name": "fullstackmovies",
+  "version": "1.0.0",
+  "description": "User review and rating of movies",
+  "main": "backend/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Topa-Chan/FullStackMovies.git"
+  },
+  "author": "Jessica and Topanga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Topa-Chan/FullStackMovies/issues"
+  },
+  "homepage": "https://github.com/Topa-Chan/FullStackMovies#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "googleapis": "^39.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.7",
+    "nodemailer": "^6.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
