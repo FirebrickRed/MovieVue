@@ -1,10 +1,21 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import {store} from './router/store.js'//'./store.js'
+const fb = require('./router/firebaseConfig.js');//'./firebaseConfig.js')
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount("#app");
+let app
+fb.auth.onAuthStateChanged(() => {
+  if (!app){
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount("#app");
+  }
+})
