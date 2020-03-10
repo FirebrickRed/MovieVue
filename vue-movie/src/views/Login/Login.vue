@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <transition name='fade'>
+    <transition name="fade">
       <div v-if="performingRequest" class="loading">
         <p>Loading...</p>
       </div>
@@ -10,9 +10,9 @@
       <input type="password" v-model="user.password" placeholder="password" />
       <button type="submit">Login</button>
     </form>
-    <transition name='fade'>
+    <transition name="fade">
       <div v-if="errorMsg !== ''" class="error-msg">
-        <p>{{errorMsg}}</p>
+        <p>{{ errorMsg }}</p>
       </div>
     </transition>
   </div>
@@ -29,7 +29,7 @@ export default {
         password: ""
       },
       performingRequest: false,
-      errorMsg: ''
+      errorMsg: ""
     };
   },
   methods: {

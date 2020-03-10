@@ -12,9 +12,9 @@
         <router-link to="/signup">SignUp</router-link>
       </div>
       <div class="user" v-if="currentUser">
-        <router-link to="/profile">Profile</router-link>
+        <router-link to="/profile">{{ currentUser.email }}</router-link>
         <a @click="logout">logout</a>
-        <h1>Welcome back {{ currentUser.email }}</h1>
+        <!-- <h1>Welcome back {{ currentUser.email }}</h1> -->
       </div>
     </div>
     <router-view />
@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -96,7 +96,7 @@ export default {
     border-left: none;
   }
 
-  button:hover{
+  button:hover {
     background: lighten(#35495e, 20%);
   }
 

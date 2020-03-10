@@ -7,19 +7,18 @@
         <Review v-bind:review="review" />
       </div>
     </div>
-    <v-rating
-      v-model="iRating"
-      color="yellow darken-3"
-      background-color="grey darken-1"
-      empty-icon="$ratingFull"
-      half-increments
-      hover
-    ></v-rating>
     <div v-if="currentUser">
       <h1>form</h1>
       <form id="reviewForm" v-on:submit.prevent="addReview">
         <input type="text" v-model="review.review" placeholder="review" />
-        <input type="number" v-model="review.rating" placeholder="rating" />
+        <v-rating v-model="iRating"></v-rating>
+        <!-- <v-rating
+          v-model="iRating"
+          color="yellow accent-4"
+          empty-icon="mdi-star-outline"
+          :half-increments="true"
+          hover
+        ></v-rating> -->
         <button type="submit">Add Review</button>
       </form>
     </div>
@@ -62,7 +61,7 @@ export default {
       perPage: 4,
       currentPage: 1,
       id: "my-table",
-      iRating: 4.5
+      iRating: 2.5
     };
   },
   created() {
@@ -76,7 +75,7 @@ export default {
     });
   },
   computed: {
-    ...mapState(["currentUser", "reviews"]),
+    ...mapState(["currentUser", "reviews", "userProfile"]),
     rows() {
       return this.actors.length;
     },
@@ -89,14 +88,15 @@ export default {
   },
   methods: {
     addReview() {
+      console.log(this.userProfile);
       fb.reviewCollection
         .add({
           createdOn: new Date(),
           userId: this.currentUser.uid,
           review: this.review.review,
-          rating: this.review.rating,
+          rating: this.iRating,
           movieId: this.$route.params.id,
-          userName: this.currentUser.userName
+          userName: this.userProfile.username
         })
         .then(ref => {
           console.log(ref);

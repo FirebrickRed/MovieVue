@@ -1,5 +1,5 @@
-import firebase from 'firebase';
-import 'firebase/firestore';
+import firebase from "firebase";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAL_CrobqM5dO-9nlZz7zfRbilFIO2mvOQ",
@@ -16,30 +16,30 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 // firebase utils
-const db = firebase.firestore()
-const auth = firebase.auth()
-const currentUser = auth.currentUser
+const db = firebase.firestore();
+const auth = firebase.auth();
+const currentUser = auth.currentUser;
 
 // date issue fix according to firebase
 const settings = {
-    // timestampsInSnapshots: true
-}
-db.settings(settings)
+  // timestampsInSnapshots: true
+};
+db.settings(settings);
 
 // firebase collections
-const usersCollection = db.collection('users')
-const reviewCollection = db.collection('reviewCollection');
+const usersCollection = db.collection("newUsers");
+const reviewCollection = db.collection("reviewCollection");
 // const postsCollection = db.collection('posts')
 // const commentsCollection = db.collection('comments')
 // const likesCollection = db.collection('likes')
 
 export {
-    db,
-    auth,
-    currentUser,
-    usersCollection,
-    reviewCollection
-    // postsCollection,
-    // commentsCollection,
-    // likesCollection
-}
+  db,
+  auth,
+  currentUser,
+  usersCollection,
+  reviewCollection
+  // postsCollection,
+  // commentsCollection,
+  // likesCollection
+};

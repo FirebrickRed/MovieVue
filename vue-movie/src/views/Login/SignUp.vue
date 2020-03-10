@@ -1,6 +1,7 @@
 <template>
   <div>
-    <form @submit="onSubmit">
+    <h1>Sign Up</h1>
+    <form @submit.prevent="onSubmit">
       <input
         v-model="form.fName"
         type="text"
@@ -37,7 +38,7 @@
 </template>
 
 <script>
-const fb = require('../../router/firebaseConfig.js');
+const fb = require("../../router/firebaseConfig.js");
 export default {
   data() {
     return {
@@ -62,7 +63,7 @@ export default {
         .then(user => {
           this.$store.commit("setCurrentUser", user);
           fb.usersCollection
-            .doc(user.uid)
+            .doc(user.user.uid)
             .set({
               firstName: this.form.fName,
               lastName: this.form.lName,
@@ -88,3 +89,18 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+form {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
+input{
+  background-color: inherit;
+  border-style: inherit;
+  color: inherit;
+}
+</style>

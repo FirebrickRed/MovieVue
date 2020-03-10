@@ -4,7 +4,10 @@
       <router-link :to="{ name: 'Single Movie', params: { id: movie.id } }">
         <h1 v-if="hover">{{ movie.title }}</h1>
         <img v-if="movie.poster_path" :src="path + movie.poster_path" />
-        <img v-if="!movie.poster_path" src="https://www.theprintworks.com/wp-content/themes/psBella/assets/img/film-poster-placeholder.png" />
+        <img
+          v-if="!movie.poster_path"
+          src="https://www.theprintworks.com/wp-content/themes/psBella/assets/img/film-poster-placeholder.png"
+        />
         <p v-if="hover">{{ movie.overview }}</p>
       </router-link>
     </div>

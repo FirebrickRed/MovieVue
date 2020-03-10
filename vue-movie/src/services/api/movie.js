@@ -18,7 +18,7 @@ export default {
       });
   },
   getMoviesBySearch(name) {
-    console.log('in movies by search ', name);
+    console.log("in movies by search ", name);
     return axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=da5ed9adab24bc28615308d12323e418&query=${name}`

@@ -9,18 +9,15 @@ fb.auth.onAuthStateChanged(user => {
     store.commit("setCurrentUser", user);
     store.dispatch("fetchUserProfile");
   }
-    fb.reviewCollection
-      .orderBy("createdOn", "desc")
-      .onSnapshot(querySnapshot => {
-        let reviewArray = [];
-        querySnapshot.forEach(doc => {
-          let review = doc.data();
-          review.id = doc.id;
-          reviewArray.push(review);
-        });
-        store.commit("setReview", reviewArray);
-      });
-  
+  fb.reviewCollection.orderBy("createdOn", "desc").onSnapshot(querySnapshot => {
+    let reviewArray = [];
+    querySnapshot.forEach(doc => {
+      let review = doc.data();
+      review.id = doc.id;
+      reviewArray.push(review);
+    });
+    store.commit("setReview", reviewArray);
+  });
 });
 
 export const store = new Vuex.Store({
