@@ -5,20 +5,23 @@
     <div v-for="review in reviews" :key="review.id">
       <div v-if="review.movieId == $route.params.id">
         <Review v-bind:review="review" />
+        <div v-if="review.userId == currentUser.uid">
+          <button @click="edit(review.id)">Edit</button>
+        </div>
       </div>
     </div>
     <div v-if="currentUser">
       <h1>form</h1>
       <form id="reviewForm" v-on:submit.prevent="addReview">
         <input type="text" v-model="review.review" placeholder="review" />
-        <v-rating v-model="iRating"></v-rating>
-        <!-- <v-rating
+        <!-- <v-rating v-model="iRating"></v-rating> -->
+        <v-rating
           v-model="iRating"
-          color="yellow accent-4"
-          empty-icon="mdi-star-outline"
-          :half-increments="true"
+          color="#42b983"
+          half-increments
           hover
-        ></v-rating> -->
+          x-large
+        ></v-rating>
         <button type="submit">Add Review</button>
       </form>
     </div>
@@ -54,7 +57,7 @@ export default {
       path: "https://image.tmdb.org/t/p/w500/",
       review: {
         review: "",
-        rating: 0
+        rating: ""
       },
       movie: Object,
       actors: [],
@@ -106,6 +109,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    edit(id){
+      console.log(id);
     }
   }
 };
@@ -114,5 +120,18 @@ export default {
 <style lang="scss" scoped>
 img {
   width: 75%;
+}
+input {
+  border: 1px solid black;
+  padding: 3px;
+}
+button{
+  border: 1px black solid;
+  background: #42b983;
+  color: white;
+  padding: 3px;
+}
+button:hover{
+  background: darken(#42b983, 10%);
 }
 </style>

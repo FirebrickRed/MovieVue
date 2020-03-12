@@ -24,7 +24,8 @@ export const store = new Vuex.Store({
   state: {
     currentUser: null,
     userProfile: {},
-    reviews: []
+    reviews: [],
+    // allUsers: []
   },
   actions: {
     clearData({ commit }) {

@@ -1,5 +1,6 @@
 import firebase from "firebase";
 import "firebase/firestore";
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAL_CrobqM5dO-9nlZz7zfRbilFIO2mvOQ",
@@ -29,6 +30,7 @@ db.settings(settings);
 // firebase collections
 const usersCollection = db.collection("newUsers");
 const reviewCollection = db.collection("reviewCollection");
+// const allUsers = auth.
 // const postsCollection = db.collection('posts')
 // const commentsCollection = db.collection('comments')
 // const likesCollection = db.collection('likes')
@@ -38,7 +40,8 @@ export {
   auth,
   currentUser,
   usersCollection,
-  reviewCollection
+  reviewCollection,
+  // allUsers
   // postsCollection,
   // commentsCollection,
   // likesCollection

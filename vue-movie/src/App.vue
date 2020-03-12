@@ -14,7 +14,9 @@
       <div class="user" v-if="currentUser">
         <router-link to="/profile">{{ currentUser.email }}</router-link>
         <a @click="logout">logout</a>
-        <!-- <h1>Welcome back {{ currentUser.email }}</h1> -->
+        <div v-if="userProfile.isAdmin">
+          <router-link to="/admin">admin</router-link>
+        </div>
       </div>
     </div>
     <router-view />
@@ -57,7 +59,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["currentUser"])
+    ...mapState(["currentUser", "userProfile"])
   }
 };
 </script>

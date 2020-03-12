@@ -72,7 +72,8 @@ export default {
               state: this.form.state,
               zip_code: this.form.zip_code,
               phone: this.form.phone,
-              username: this.form.username
+              username: this.form.username,
+              email: this.form.email
             })
             .then(() => {
               this.$store.dispatch("fetchUserProfile");
@@ -97,10 +98,16 @@ form {
   width: fit-content;
   margin: auto;
 }
-
-input{
-  background-color: inherit;
-  border-style: inherit;
-  color: inherit;
+input {
+  border: 1px black solid;
+  padding: 3px;
+}
+button{
+  border: 1px black solid;
+  background: #42b983;
+  color: white;
+}
+button:hover{
+  background: darken(#42b983, 10%);
 }
 </style>
